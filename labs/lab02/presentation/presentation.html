@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Козомазов Владимир Романович">
-  <title>Создание образа виртуальной машины</title>
+  <title>Системы контроля версий</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -384,12 +384,12 @@ background-color: var(--r-background-color);
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Создание образа виртуальной машины</h1>
-  <p class="subtitle">Презентация по лабораторной работе №1</p>
+  <h1 class="title">Системы контроля версий</h1>
+  <p class="subtitle">Лабораторная работа №2</p>
   <p class="author">Козомазов Владимир Романович</p>
   <p class="institute">Российский университет дружбы народов, Москва,
 Россия</p>
-  <p class="date">06 марта 2025</p>
+  <p class="date">6.03.2025</p>
 </section>
 
 <section>
@@ -405,10 +405,9 @@ background-color: var(--r-background-color);
 <li>Козомазов Владимир Романович</li>
 <li>студент факультета ФМЕН</li>
 <li>Российский университет дружбы народов</li>
-<li><a href="mailto:1132246812@pfur.com">1132246812@pfur.com</a></li>
 </ul>
 </div><div class="column" style="width:30%;">
-<p><img role="img" data-src /></p>
+
 </div>
 </div>
 </section></section>
@@ -419,90 +418,65 @@ background-color: var(--r-background-color);
 </section>
 <section id="актуальность" class="slide level2">
 <h2>Актуальность</h2>
-<p>Актуальность виртуализации обусловлена её способностью решать
-ключевые задачи современного ИТ-мира: оптимизация ресурсов, снижение
-затрат, повышение гибкости и безопасности. Она стала неотъемлемой частью
-облачных вычислений, DevOps, корпоративных инфраструктур и даже
-домашнего использования. С развитием технологий виртуализация продолжает
-оставаться важным инструментом для инноваций и эффективного управления
-ИТ-ресурсами.</p>
+<p>Тема систем контроля версий остается актуальной благодаря их
+универсальности, гибкости и широкому спектру применения. Они являются
+ключевым инструментом для управления кодом, совместной работы,
+автоматизации процессов и обеспечения безопасности. Освоение VCS,
+особенно Git, является обязательным навыком для современных
+ИТ-специалистов и открывает широкие возможности для профессионального
+развития.</p>
 </section>
 <section id="объект-и-предмет-исследования" class="slide level2">
 <h2>Объект и предмет исследования</h2>
-<p>Объектом и предсетом исследования является виртуализция в современных
-операционных системах</p>
+<p>Объектом и предметом исследования являются системы контроля
+версий.</p>
 </section>
 <section id="цели-и-задачи" class="slide level2">
 <h2>Цели и задачи</h2>
 <ul>
-<li>Развитие практических навыков, которые необходимы для работы в
-современной ИТ-индустрии</li>
-<li>Получение теоретических знаний</li>
+<li>Изучить идеологию и применение средств контроля версий.</li>
+<li>Освоить умения по работе с git.</li>
 </ul>
 </section>
 <section id="материалы-и-методы" class="slide level2">
 <h2>Материалы и методы</h2>
 <ul>
-<li>Работа выполнялась на базе операционной системе Windows и
-виртуальной машины VirtualBox</li>
-<li>Устанавливалась операционная система Fedora Linux Sway 41</li>
+<li>Работа выполнялась на базе операционной системе Windows</li>
 </ul>
 </section></section>
 <section>
 <section id="выполнение-работы" class="title-slide slide level1">
-<h1>Выполнение работы</h1>
+<h1>выполнение работы</h1>
 
 </section>
-<section id="настройка-виртуальной-машины" class="slide level2">
-<h2>Настройка виртуальной машины</h2>
+<section id="проверка-необходимых-установок" class="slide level2">
+<h2>Проверка необходимых установок</h2>
 <ul>
-<li>Создание пользователя с помощью команды <code>liveinst</code></li>
-<li>Установка обновлений командой <code>dnf update</code></li>
-<li>Установка tmux и mc</li>
+<li>Проверил установку git при помощи команды
+<code>git --version</code></li>
+<li>Проверил установку gh при помощи команды
+<code>gh --version</code></li>
+<li>Проверил имя и email владельца репозитория командами:
+<ul>
+<li><code>git config --global user.name</code></li>
+<li><code>git config --global user.email</code></li>
+</ul></li>
+<li>Проверил наличие SSH ключа с помощью команды
+<code>ls ~/.ssh</code></li>
 </ul>
 </section>
-<section id="установка-автообновлений" class="slide level2">
-<h2>Установка автообновлений</h2>
+<section id="создание-и-добавление-gpg-ключа-в-git" class="slide level2">
+<h2>Создание и добавление gpg ключа в git</h2>
 <ul>
-<li>Установка автообновлений с помощью команды
-<code>dnf install dnf-automatic</code></li>
-<li>В файлее automatic.conf пишем следующиее команды:
-<code>[commands]</code>,<code>download_updates = yes</code>,<code>apply_updates = no</code>,<code>upgrade_type = default</code></li>
-<li>Используем команду
-<code>systemctl enable --now dnf-automatic.timer</code></li>
-</ul>
-</section>
-<section id="установка-драйверов-для-виртуальной-машины" class="slide level2">
-<h2>Установка драйверов для виртуальной машины</h2>
-<ul>
-<li>С помощью команды <code>dnf -y install dkms</code> подгоняем модуль
-под текущее ядро</li>
-<li>Командой <code>mount /dev/sr0 /mqdia/</code> подмонтируем</li>
-<li>Подключаем диск</li>
-<li>Устанавлием и запускаем драйвера с помощью команды
-<code>./VBoxLinuxAdditions run</code></li>
-<li>Перезапускаем виртуальную машину командой <code>reboot</code></li>
-</ul>
-</section>
-<section id="изменение-имени-хоста" class="slide level2">
-<h2>Изменение имени хоста</h2>
-<ul>
-<li>Меняем имя хоста на vkozomazov с помощью команды
-<code>hostnamectl set-hostname vkozomazov</code></li>
-<li>Проверяем, что замена прошла успешно командой
-<code>hostnamectk</code></li>
-</ul>
-</section>
-<section id="установка-pandoc-и-texlive" class="slide level2">
-<h2>Установка pandoc и texlive</h2>
-<ul>
-<li>Установим все необходимые пакеты для дальнейшей пвботы с помощью
-команды <code>dnf -y install pandoc</code></li>
-<li>Установим texlive командой
-<code>dnf -y install texlive texlive\*</code></li>
-<li>Проверим после установки, что все пакеты были установлены, в
-частности <code>lualatex</code>, <code>pdflatex</code>,
-<code>xelatex</code></li>
+<li>Настроил utf-8 в выводе сообщений git командой
+<code>git config --global core.quotepath false</code></li>
+<li>Создал ключ gpg с помощью команды
+<code>gpg --full-generate-key</code> и выбрал необходимые опции</li>
+<li>Вывел на экран сгенерированный gpg ключ командйо
+<code>gpg --armor --export 7816A9728D800CD0</code> и скопировал в буфер
+обмена</li>
+<li>Добавил gpg ключ на github</li>
+<li>Настроил автоматичесие подписи коммитов git</li>
 </ul>
 </section></section>
 <section>
@@ -512,9 +486,9 @@ background-color: var(--r-background-color);
 </section>
 <section id="итоги" class="slide level2">
 <h2>Итоги</h2>
-<p>В ходе выполнения лабораторной работы №1 были получены навыки по
-созданию и настраиванию виртуальной машины для дальнейшей работы с
-ней.</p>
+<p>В ходе выполнения лабораторной работы №2 были получены навыки по
+созданию gpg ключа и добавлению его в свой репозиторий. Также были
+освоены навыки по настройке github, git и gh.</p>
 </section></section>
     </div>
   </div>
