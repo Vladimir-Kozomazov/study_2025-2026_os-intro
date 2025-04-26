@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Козомазов Владимир Романович">
+  <title>Менеджер паролей pass</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <style type="text/css">Not found: /reveal.js@4.6.1//dist/reset.css</style>
+  <style type="text/css">Not found: /reveal.js@4.6.1//dist/reveal.css</style>
+  <style>
+.reveal .sourceCode { 
+overflow: visible;
+}
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">Not found: /reveal.js@4.6.1//dist/theme/beige.css</style>
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Менеджер паролей pass</h1>
+  <p class="subtitle">Лабораторная работа №8</p>
+  <p class="author">Козомазов Владимир Романович</p>
+  <p class="institute">Российский университет дружбы народов, Москва,
+Россия</p>
+  <p class="date">5 апреля 2025</p>
+</section>
+
+<section id="информация" class="slide level1">
+<h1>Информация</h1>
+<h2 id="докладчик">Докладчик</h2>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Козомазов Владимир Романович</li>
+<li>Студент факультета ФМЕН</li>
+<li>Российский университет дружбы народов</li>
+</ul>
+</div><div class="column" style="width:30%;">
+<p><img role="img" data-src="./image/001.jpg" /></p>
+</div>
+</div>
+</section>
+<section id="вводная-часть" class="slide level1">
+<h1>Вводная часть</h1>
+<h2 id="актуальность">Актуальность</h2>
+<p>Pass остается актуальным инструментом благодаря своей простоте,
+безопасности и интеграции с Unix-экосистемой. Он идеально подходит для
+пользователей, которые ценят локальное хранение данных, открытый
+исходный код и гибкость в управлении паролями. В условиях растущих угроз
+кибербезопасности pass предоставляет надежное решение для защиты учетных
+данных.</p>
+<h2 id="объект-и-предмет-исследования">Объект и предмет
+исследования</h2>
+<p>Объект исследования - Менеджер паролей pass как инструмент для
+управления паролями</p>
+<p>Предмет исследования - Принципы работы - Функциональные возможности -
+Безопасность - Практическое применение</p>
+<p>Четкое определение объекта и предмета исследования позволяет
+сосредоточиться на ключевых аспектах темы и провести глубокий анализ
+менеджера паролей pass.</p>
+<h2 id="цели-и-задачи">Цели и задачи</h2>
+<p>Цель установки менеджера паролей — обеспечить безопасное, удобное и
+эффективное управление учетными данными. Менеджер паролей помогает: -
+Создавать и использовать сложные уникальные пароли. - Защищать данные от
+утечек и атак. - Упрощать процесс входа на сайты и в приложения. -
+Организовывать и синхронизировать пароли между устройствами.</p>
+<h2 id="установка-менеджера-паролей-pass">Установка менеджера паролей
+pass</h2>
+<ul>
+<li>Установка менеджера паролей
+<code>sudo dnf install pass pass-otp</code>,
+<code>sudo dnf install gopass</code></li>
+</ul>
+<h2 id="настройка">Настройка</h2>
+<ul>
+<li>Инициализация хранилища, командой
+<code>pass init &lt;gpg-id&gt;</code></li>
+<li>Создание структуры git <code>pass git init</code></li>
+<li>Синхронизация <code>pass git pull</code>,
+<code>pass git push</code></li>
+<li>Проверка статуса синхронизации <code>pass git status</code></li>
+</ul>
+<h2 id="сохранение-пароля">Сохранение пароля</h2>
+<ul>
+<li>Добавил новый пароль
+<code>pass insert [OPTIONAL DIR]/[FILENAME]</code></li>
+<li>Отобразил пароль для указанного имени файла
+<code>pass [OPTIONAL DIR]/[FILENAME]</code></li>
+<li>Заменил существующий пароль
+<code>pass generate --in-place FILENAME</code></li>
+</ul>
+<h2 id="дополнительное-программное-обеспечение">Дополнительное
+программное обеспечение</h2>
+<p>Установил дополнительное программное обеспечение: sudo dnf -y
+install<br />
+dunst<br />
+fontawesome-fonts<br />
+powerline-fonts<br />
+light<br />
+fuzzel<br />
+swaylock<br />
+kitty<br />
+waybar swaybg<br />
+wl-clipboard<br />
+mpv<br />
+grim<br />
+slurp</p>
+<h2 id="дополнительное-программное-обеспечение-1">Дополнительное
+программное обеспечение</h2>
+<p>Установил шрифты: <code>sudo dnf copr enable peterwu/iosevka</code>
+<code>sudo dnf search iosevka</code>
+<code>sudo dnf install iosevka-fonts iosevka-aile-fonts iosevka-curly-fonts iosevka-slab-fonts iosevka-etoile-fonts iosevka-term-fonts</code></p>
+<h2 id="установка">Установка</h2>
+<ul>
+<li>Установка бинарного файла
+<code>sh -c &quot;$(wget -qO- chezmoi.io/get)&quot;</code></li>
+</ul>
+<h2 id="создание-собственного-репозитория-с-помощью-утилит">Создание
+собственного репозитория с помощью утилит</h2>
+<p>Создал репозиторий на основе шаблона</p>
+<h2 id="подключение-репозитория-к-своей-системе">Подключение репозитория
+к своей системе</h2>
+<ul>
+<li>Инициализировал chezmoi с моим репозиторием
+<code>chezmoi init git@github.com:&lt;username&gt;/dotfiles.git</code></li>
+<li>Проверил внесённые изменения <code>chezmoi diff</code></li>
+</ul>
+<h2 id="ежедневные-операции-c-chezmoi">Ежедневные операции c
+chezmoi</h2>
+<ul>
+<li>Включил функцию автоматической фиксации и отправке изменений в
+репозиторий: [git] autoCommit = true autoPush = true</li>
+</ul>
+</section>
+<section id="результаты" class="slide level1">
+<h1>Результаты</h1>
+<p><strong>pass</strong> — это мощный и гибкий менеджер паролей, который
+сочетает в себе простоту использования, высокий уровень безопасности и
+интеграцию с Unix-экосистемой. Он идеально подходит для пользователей,
+которые предпочитают консольные инструменты и хотят иметь полный
+контроль над своими данными. Благодаря использованию GPG и Git,
+<strong>pass</strong> обеспечивает надежное шифрование и удобную
+синхронизацию паролей между устройствами.</p>
+</section>
+    </div>
+  </div>
+
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fdist%2Freveal%2Ejs"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fnotes%2Fnotes%2Ejs"></script>
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fsearch%2Fsearch%2Ejs"></script>
+  <script src="data:text/plain;charset=UTF-8;charset=utf-8,Not%20found%3A%20%2Freveal%2Ejs%404%2E6%2E1%2F%2Fplugin%2Fzoom%2Fzoom%2Ejs"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
